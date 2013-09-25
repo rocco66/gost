@@ -1,0 +1,21 @@
+{
+  "name": "gost",
+  "version": "0.0.0",
+  "authors": [
+    "Maxim Mitroshin <rocco66max@gmail.com>"
+  ],
+  "description": "Statistic appication for Go game",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.0.8",
+    "angular-ui-bootstrap": "~0.6.0",
+    "bootstrap": "~3.0.0"
+  }
+}

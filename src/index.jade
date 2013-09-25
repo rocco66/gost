@@ -1,0 +1,13 @@
+html
+  head
+    link(rel='stylesheet', href='/css/vendor.css')
+    script(src='/js/vendor.js')
+    script(src='/js/gost.js')
+  body(ng-app="gost")
+    // div(ng-controller="MainTabs")
+    div(ng-controller="GostController")
+      tabset
+        tab(ng-repeat="tab in tabs"
+            active="tab.active"
+            heading="{{tab.title}}")
+          {{tab.content}}
