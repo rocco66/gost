@@ -9,7 +9,14 @@ module.exports = function(grunt) {
         }
       },
       index: {
-        files: { "dist/index.html": "src/index.jade"}
+        files: [{
+            expand: true,
+            dest: "dist/",
+            src: "**/*.jade",
+            ext: ".html",
+            cwd: "src"
+
+        }]
       }
     },
     clean: {
@@ -39,21 +46,39 @@ module.exports = function(grunt) {
       }
     },
     shell: {
+        options: {
+            stdout: true,
+            stderr: true,
+        },
         cljs_once: {
             command: "lein cljsbuild once"
         },
+    },
+    stylus: {
+      compile: {
+        options: {
+          // use: [
+          //   require('fluidity')
+          // ],
+      },
+      files: {
+        'dist/css/gost.css': 'src/**/*.styl',
+        }
+      }
     }
   })
 
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-jade");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks("grunt-shell");
 
   grunt.registerTask("build", ["clean:before",
                                "jade:index",
                                "concat:vendor_js",
                                "concat:vendor_css",
+                               "stylus:compile",
                                "shell:cljs_once"
                                ])
 }

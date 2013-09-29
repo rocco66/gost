@@ -1,0 +1,7 @@
+div(ng-controller="AuthController")
+    a.btn.btn-primary(href="#"
+                      ng-click="login_twitter()"
+                      ng-if="!is_login()")
+       i.icon-twitter Sign in with Twitter
+    img.img-rounded(src="{{user.profile_image_url_https}}"
+                    ng-if="is_login()")
