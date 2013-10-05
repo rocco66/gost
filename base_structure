@@ -1,0 +1,18 @@
+gamers:
+  rocco66:
+    settings: {}
+    twitter_id: _
+  alex:
+    settings: {}
+    github_id: _
+groups:
+  selectel: ["rocco66", "alex]
+games:
+  "04.10.2013 23:52":
+    white:
+      name: rocco66
+      score: 98
+    black:
+      name: alex
+      score: 100
+    legup: 4
