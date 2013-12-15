@@ -26,7 +26,7 @@ module.exports = (grunt) ->
 
             # TODO(rocco66): untill angular-ui-boootstrap has not
             # bootstrap3 support
-            "vendor/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.7.0.js"
+            "vendor/angular-ui-bootstrap/dist/ui-bootstrap-0.7.0.js"
 
             "bower_components/angularfire/angularfire.min.js"
             "bower_components/angular-route/angular-route.min.js"
