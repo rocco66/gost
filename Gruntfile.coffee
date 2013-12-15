@@ -16,7 +16,6 @@ module.exports = (grunt) ->
         ]
     clean:
       before: ["dist/"]
-      after: [".temp/"]
     concat:
       vendor_js:
         options:
@@ -24,14 +23,19 @@ module.exports = (grunt) ->
         files:
           "dist/js/vendor.js": [
             "bower_components/angular/angular.js"
-            "bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.6.0.js.manually"
+
+            # TODO(rocco66): untill angular-ui-boootstrap has not
+            # bootstrap3 support
+            "vendor/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.7.0.js"
+
             "bower_components/angular-fire/angularfire.min.js"
+            "bower_components/angular-route/angular-route.min.js"
           ],
       vendor_css:
         files:
           "dist/css/vendor.css": [
-            "bower_components/angular-ui/build/angular-ui.min.css"
             "bower_components/bootstrap/dist/css/bootstrap.min.css"
+            "bower_components/font-awesome/css/font-awesome.min.css"
           ]
     shell:
         options:
@@ -60,6 +64,11 @@ module.exports = (grunt) ->
       options:
         logConcurrentOutput: true
       watch_all: ["watch", "shell:cljs_auto"]
+    "build-deps":
+        # cd bower_components/angular-ui-bootstrap/
+        # npm install
+        # grunt
+        {}
 
 
   grunt.loadNpmTasks("grunt-contrib-concat")
@@ -76,5 +85,5 @@ module.exports = (grunt) ->
                                "concat:vendor_js"
                                "concat:vendor_css"
                                "stylus:compile"
-                               "shell:cljs_once"
+                               # "shell:cljs_once"
                                ])

@@ -1,13 +1,4 @@
-(ns gost.gost-controller)
+(ns gost.gost-controller
+  (:use [gost :only (gost)]))
 
-;; (.controller (.module js/angular "gost")
-;;     "GostController"
-;;     (fn [$scope]
-;;      (def chatRef (js/Firebase. "https://go-statistic.firebaseio.com"))
-;;      (def auth (js/FirebaseSimpleLogin. chatRef,
-;;          (fn [error, user]
-;;            (if error
-;;                (.log js/console error)
-;;                (if user(set! (.-user $scope) user))))))
-;;      (set! (.-login-twitter $scope)
-;;            (fn [] (.login auth "twitter")))))
+(.controller gost "GostController" #())

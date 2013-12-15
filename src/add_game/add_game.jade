@@ -1,0 +1,41 @@
+.modal-header
+  h2 Add new game result
+.modal-body
+  form(role="form")
+    .form-group
+      i.new-games-gamer-color.fa.fa-circle.fa-fw
+      span Choose Black player
+      span.dropdown
+        input.form-control.dropdown-toggle(
+          type="text"
+          placeholder="First player")
+        ul.dropdown-menu
+            li(ng-repeat="gamer in gamers")
+              a {{gamer.nick}}
+    .form-group
+      i.new-games-gamer-color.fa.fa-circle-o.fa-fw
+      span Choose White player
+      .dropdown
+        input.form-control.dropdown-toggle(
+          type="text"
+          placeholder="Second player")
+        ul.dropdown-menu
+            li(ng-repeat="gamer in gamers")
+              a {{gamer.nick}}
+  form(role="form").form-inline
+    .row
+      .form-group
+        label Date of game
+        input.form-control(type="text"
+              datepicker-popup="dd/MM/yyyy"
+              ng-model="dateOfGame"
+              ng-required="true")
+      .form-group
+        label Time
+        input.form-control(type="text"
+                           ng-required="true")
+
+
+.modal-footer
+  button.btn.btn-primary Create
+  button.btn.btn-warning(ng-click="cancel()") Cancel

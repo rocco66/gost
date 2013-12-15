@@ -1,0 +1,15 @@
+div(ng-controller="GamesController")
+  div.game_blank(ng-repeat="game in games")
+    button.btn.btn-default
+      h4 {{game.title}}
+      .row
+        .col-md-6
+          .game-row
+            i.games-gamer-color.fa.fa-circle
+            p {{game.black.name}} ({{(game.black.score)}})
+          .game-row
+            i.games-gamer-color.fa.fa-circle-o
+            p {{game.white.name}} ({{game.white.score}})
+            i.games-gamer-color.fa.fa-star.winner-star
+        .col-md-6
+          .game-row {{game.date}}

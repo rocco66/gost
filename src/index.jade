@@ -1,8 +1,6 @@
 html
   head
     link(rel="stylesheet", href="/css/vendor.css")
-    link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
-         rel="stylesheet")
     link(rel="stylesheet", href="/css/gost.css")
     script(src="https://cdn.firebase.com/v0/firebase.js")
     script(src="https://cdn.firebase.com/v0/firebase-simple-login.js")
@@ -10,28 +8,25 @@ html
 
     script(src="/js/vendor.js")
     script(src="/js/gost.js")
-  body(ng-app="gost").container
-    div
-
-
-nav.navbar.navbar-collapse(role="navigation")
-  a.navbar-brand(href="#") Gost
-  form.navbar-form.navbar.form-left
-    button.btn.btn-default.navbar-btn(type="button") Add game
-  tabset.nav.navbar-nav.nav-pills
-    tab(heading="Dashboard"
-        ng-controller="DashboardController")
-      div(ng-include="'dashboard/dashboard.html'")
-    tab(heading="Games")
-      a(href="#") Games content
-    tab(heading="Gamers")
-      a(href="#") Gamers content
-    tab(heading="Groups")
-      a(href="#") Groups content
-  p.navbar-text.pull-right
-    div(ng-controller="AuthController")
-      div.navbar-text.pull-right(ng-show="user")
-        | {{user.name}}
-        a.navbar-link.btn(ng-click="logout()") Logout
-      div.navbar-text.pull-right(ng-hide="user")
-        a.btn(ng-click="login_twitter()") Login
+  body.container(ng-app="gost", ng-controller="GostController")
+    nav.row.navbar.navbar-collapse(role="navigation")
+      form.col-md-4.navbar-form.navbar.form-left
+        a.navbar-brand(href="#") Gost
+      div.col-md-4.col-md-offset-8.navbar-text.pull-right(ng-controller="AuthController")
+        div.navbar-text.pull-right(ng-show="user")
+          | {{user.name}}
+          a.navbar-link.btn(ng-click="logout()") Logout
+        div.navbar-text.pull-right(ng-hide="user")
+          a.btn(ng-click="login_twitter()") Login
+    tabset.nav.navbar-nav.nav-pills(ng-controller="AddGameController")
+      button.btn.btn-success.navbar-btn(type="button"
+                                        ng-click="add_game()") Add game
+      // tab(heading="Dashboard"
+      //     ng-controller="DashboardController")
+      //   div(ng-include="'dashboard/dashboard.html'")
+      tab(heading="Games")
+        div(ng-include="'games/games.html'")
+      tab(heading="Gamers")
+        a(href="#") Gamers content
+      tab(heading="Groups")
+        a(href="#") Groups content
