@@ -12,15 +12,13 @@ html
     nav.row.navbar.navbar-collapse(role="navigation")
       form.col-md-4.navbar-form.navbar.form-left
         a.navbar-brand(href="#") Gost
-      div.col-md-4.col-md-offset-8.navbar-text.pull-right(ng-controller="AuthController")
-        div.navbar-text.pull-right(ng-show="user")
-          | {{user.name}}
-          a.navbar-link.btn(ng-click="logout()") Logout
-        div.navbar-text.pull-right(ng-hide="user")
-          a.btn(ng-click="login_twitter()") Login
+      div.col-md-4.col-md-offset-8.navbar-text.pull-right(
+        ng-controller="AuthController"
+        ng-include="'auth/auth.html'")
     tabset.nav.navbar-nav.nav-pills(ng-controller="AddGameController")
       button.btn.btn-success.navbar-btn(type="button"
-                                        ng-click="add_game()") Add game
+                                        ng-click="show_add_game_modal()")
+        | Add game
       // tab(heading="Dashboard"
       //     ng-controller="DashboardController")
       //   div(ng-include="'dashboard/dashboard.html'")

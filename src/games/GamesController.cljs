@@ -2,5 +2,5 @@
   (:use [gost :only (gost)]))
 
 (.controller gost "GamesController" (fn [$scope go-base]
-   (.getCollection go-base $scope "games")
+(.getCollection go-base $scope "games")
     ))

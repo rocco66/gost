@@ -1,5 +1,11 @@
-span(ng-show="user")
-  | {{user.name}}
-  a.btn(ng-click="logout()") Logout
-span(ng-hide="user")
-  a.btn(ng-click="login()") Login
+// span(ng-show="user")
+//   | {{info}}
+//   a.btn(ng-click="logout()") Logout
+// span(ng-hide="user")
+//   a.btn(ng-click="login()") Login
+
+div.navbar-text.pull-right(ng-show="user")
+  | {{user.displayName}}
+  a.navbar-link.btn(ng-click="logout()") Logout
+div.navbar-text.pull-right(ng-hide="user")
+  a.btn(ng-click="login_twitter()") Login
